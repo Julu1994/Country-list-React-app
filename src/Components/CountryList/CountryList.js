@@ -1,20 +1,23 @@
 import React from 'react';
 import AllCountry from './AllCountry';
+
 import './CountryList.css';
 const CountryList = (props) => {
   return (
     <div className='body__container'>
-      {props.country.map((country) => {
+      {props.country.map((item) => {
         return (
-          <AllCountry
-            key={country.id}
-            flag={country.flag}
-            name={country.name}
-            capital={country.capital}
-            region={country.region}
-            population={country.population}
-            area={country.area}
-          />
+          <>
+            <AllCountry
+              key={item.id}
+              flag={item.flag}
+              name={item.name}
+              capital={item.capital}
+              region={item.region}
+              population={item.population}
+              area={item.area}
+            />
+          </>
         );
       })}
     </div>

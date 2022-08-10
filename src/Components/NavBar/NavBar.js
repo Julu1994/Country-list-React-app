@@ -1,16 +1,24 @@
-import React from 'react';
-import Search from '../Search/Search';
+import React, { useState } from 'react';
 import './NavBar.css';
 import { FaGlobeAsia } from 'react-icons/fa';
-
+import { BiSearchAlt } from 'react-icons/bi';
 import { BsFillHeartFill } from 'react-icons/bs';
-const NavBar = () => {
+
+const NavBar = (props) => {
+  const searchHandler = (e) => {
+    props.onSearch(e.target.value.trim());
+  };
   return (
     <div className='nav'>
       <div className='nav__Logo'>
         <FaGlobeAsia className='globe-__icon' />
       </div>
-      <Search />
+      <div className='search'>
+        <BiSearchAlt className='search__icon' />
+        <form>
+          <input type='text' placeholder='Where to?' onChange={searchHandler} />
+        </form>
+      </div>
       <div className='wish__list'>
         <p>Favourite country</p>
         <div className='wish__list-count'>
